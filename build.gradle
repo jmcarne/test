@@ -1,0 +1,46 @@
+group 'com.scmspain.middleware'
+version '1.0-SNAPSHOT'
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.9'
+  distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
+
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.22'
+
+    // Jackson Java time support
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-json-org:2.8.0")
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    compile("com.hynnet:json-lib:2.4")
+
+    // Standard set of test tooling
+    compile("io.rest-assured:json-path:3.0.0")
+    testCompile("io.springfox:springfox-staticdocs:2.5.0")
+    testCompile("org.assertj:assertj-core:3.4.1")
+    testCompile("org.mockito:mockito-core:1.10.19")
+    testCompile("com.github.tomakehurst:wiremock:1.57")
+    testCompile("com.h2database:h2:1.3.170")
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.scmspain.technical.framework.Application'
+        )
+    }
+}
