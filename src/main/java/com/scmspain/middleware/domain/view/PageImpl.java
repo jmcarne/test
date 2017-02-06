@@ -1,6 +1,10 @@
 package com.scmspain.middleware.domain.view;
 
+import org.rendersnake.HtmlCanvas;
+
 import java.io.IOException;
+
+import static org.rendersnake.HtmlAttributesFactory.href;
 
 /**
  * Created by josep.carne on 05/02/2017.

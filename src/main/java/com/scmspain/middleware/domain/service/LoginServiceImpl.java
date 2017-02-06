@@ -2,6 +2,7 @@ package com.scmspain.middleware.domain.service;
 
 import com.scmspain.middleware.domain.model.dao.UserDao;
 import com.scmspain.middleware.domain.view.LoginFormImpl;
+import com.scmspain.middleware.domain.view.UnAuthenticated;
 import com.scmspain.middleware.framework.http.session.ContextSession;
 import com.scmspain.middleware.framework.http.session.Session;
 import com.scmspain.middleware.framework.http.session.Sessions;

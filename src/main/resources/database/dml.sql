@@ -1,4 +1,4 @@
-INSERT INTO USER (NAME, SURNAME, PASSWORD, ROLE) values
+INSERT INTO USER (USER, NAME, SURNAME, PASSWORD, ROLE) values
 ('USER1', 'Fulano', 'Fulanito', '123111', 'ROLE1'),
 ('USER2', 'Mangano', 'Manganito', '123222', 'ROLE2'),
 ('USER3', 'Pepino', 'Pepinito', '123333', 'ROLE3'),

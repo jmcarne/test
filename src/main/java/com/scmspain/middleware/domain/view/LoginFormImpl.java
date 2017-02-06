@@ -5,11 +5,18 @@ import java.io.IOException;
 import org.rendersnake.HtmlCanvas;
 
 import static jdk.nashorn.internal.runtime.Debug.id;
+import static org.rendersnake.HtmlAttributesFactory.for_;
+import static org.rendersnake.HtmlAttributesFactory.id;
+import static org.rendersnake.HtmlAttributesFactory.type;
 
 /**
  * Created by josep.carne on 05/02/2017.
  */
 public class LoginFormImpl {
+    private static final String ID_USERNAME = "username";
+    private static final String ID_PASSWORD = "password";
+    private static final String VAR_USERNAME = "username";
+    private static final String VAR_PASSWORD = "password";
 
     public String doRequiredLogin(String requestedURI) throws IOException {
         final HtmlCanvas html = new HtmlCanvas();
@@ -30,7 +37,6 @@ public class LoginFormImpl {
                 .input(type("submit").value("Log me in"))
                 ._form()
                 .toHtml();
-    }
     }
 
     public String doNoRequiredLogin(String requestedURI) throws IOException {

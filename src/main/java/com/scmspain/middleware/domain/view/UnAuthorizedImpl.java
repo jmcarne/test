@@ -1,5 +1,7 @@
 package com.scmspain.middleware.domain.view;
 
+import org.rendersnake.HtmlCanvas;
+
 import java.io.IOException;
 
 /**
