@@ -39,8 +39,8 @@ http://localhost:9000/app/login/logout.html
 Usernames | Password | ROL | May access
 --------- | -------- | --- | ----------
 jmcarne | 123456 | ADMIN | Everything and POST API REST
-USER1 | 123456 | ROLE_APP_PAGE_1 | http://localhost:8080/app/pages/page1.html
-USER2 | root | ROLE_APP_PAGE_2 | http://localhost:8080/app/pages/page2.html
+USER1 | 123456 | ROLE_1 | http://localhost:8080/app/pages/page1.html
+USER2 | root | ROLE_2 | http://localhost:8080/app/pages/page2.html
 
 
 ## Available roles
