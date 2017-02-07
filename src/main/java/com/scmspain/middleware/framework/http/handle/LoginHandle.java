@@ -38,7 +38,7 @@ public class LoginHandle implements HttpHandler {
     }
 
     protected void handleThrowable(HttpExchange httpExchange) throws IOException  {
-        //grasessionHandler.handle(httpExchange);
+        //sessionHandler.handle(httpExchange);
 
         loginController.handle(httpExchange);
     }

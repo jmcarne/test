@@ -1,6 +1,6 @@
 package com.scmspain.middleware.domain.service;
 
-import com.scmspain.middleware.domain.model.dao.UserDao;
+import com.scmspain.middleware.domain.model.dao.ResourceDao;
 import com.scmspain.middleware.domain.view.LoginFormImpl;
 import com.scmspain.middleware.domain.view.UnAuthenticated;
 import com.scmspain.middleware.framework.http.session.ContextSession;
@@ -23,9 +23,9 @@ public class LoginServiceImpl {
     private static final String COOKIE_HEADER = "Cookie";
 
     public boolean isValidUser(String user, String password) {
-        final UserDao userDao = new UserDao();
+        final ResourceDao userDao = new ResourceDao();
 
-        if (null != userDao.findByUserAndPassword(user, password)) {
+        if (null != userDao.findByCodeAndPassword(user, password)) {
             return true;
         } else {
             return false;

@@ -18,6 +18,17 @@ public class LoginFormImpl {
     private static final String VAR_USERNAME = "username";
     private static final String VAR_PASSWORD = "password";
 
+    public String doNoRequiredLogin() throws IOException {
+        final HtmlCanvas html = new HtmlCanvas();
+        return html
+                .html()
+                .body()
+                .h1().content("NO REQUIRED LOGIN")
+                ._body()
+                ._html()
+                .toHtml();
+    }
+
     public String doRequiredLogin(String requestedURI) throws IOException {
         final HtmlCanvas html = new HtmlCanvas();
         return html
@@ -36,17 +47,6 @@ public class LoginFormImpl {
                 .br()
                 .input(type("submit").value("Log me in"))
                 ._form()
-                .toHtml();
-    }
-
-    public String doNoRequiredLogin(String requestedURI) throws IOException {
-        final HtmlCanvas html = new HtmlCanvas();
-        return html
-                .html()
-                .body()
-                .h1().content("NO REQUIRED LOGIN")
-                ._body()
-                ._html()
                 .toHtml();
     }
 }

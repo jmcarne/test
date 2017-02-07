@@ -10,7 +10,7 @@ INSERT INTO ROLE (ROLE,DESCRIPTION) values
 ('ROLE2', 'Page 2 access'),
 ('ROLE3', 'Page 3 access');
 
-INSERT INTO RESOURCE (URL_ACCESS, METHOT_ACCESS) values
+INSERT INTO RESOURCE (URL_ACCESS, METHOD_ACCESS) values
 ('/app/pages/page1.html', 'GET'),
 ('/app/pages/page2.html', 'GET'),
 ('/app/pages/page3.html', 'GET'),
