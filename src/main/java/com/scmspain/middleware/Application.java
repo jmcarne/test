@@ -1,12 +1,11 @@
 package com.scmspain.middleware;
 
+import com.scmspain.middleware.framework.context.ApplicationContext;
+import com.scmspain.middleware.framework.context.web.ApplicationWebContext;
 import com.scmspain.middleware.framework.http.handle.LoginHandle;
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.util.logging.Logger;
 
@@ -21,16 +20,17 @@ public class Application {
 
     public static void main(String[] args) throws IOException {
 
+        final ApplicationContext appContext = ApplicationWebContext.getInstance();
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-        HttpHandler handler = new HttpHandler() {
+        /*HttpHandler handler = new HttpHandler() {
             public void handle(HttpExchange t) throws IOException {
                 InputStream is = t.getRequestBody();
                 while (is.read() != -1);
                 t.sendResponseHeaders (404, -1);
                 t.close();
             }
-        };
-        server.createContext(LoginHandle.CONTEXT, handler);
+        };*/
+        server.createContext(LoginHandle.CONTEXT, appContext.getLoginHandler());
         server.setExecutor(null);
 
         server.start();

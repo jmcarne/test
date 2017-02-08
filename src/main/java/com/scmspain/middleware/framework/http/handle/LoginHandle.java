@@ -12,16 +12,17 @@ import java.io.IOException;
  * Created by josep.carne on 05/02/2017.
  */
 public class LoginHandle implements HttpHandler {
-    public final static String CONTEXT = "/app";
+    public static final String CONTEXT = "/app/login/";
+
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginHandle.class);
 
     private final LoginController loginController = new LoginController();
-    //private final HttpHandler sessionHandler;
+    private final HttpHandler sessionHandler;
 
-    /*public LoginHandler(HttpHandler sessionHandler) {
+    public LoginHandle(HttpHandler sessionHandler) {
 
         this.sessionHandler = sessionHandler;
-    }*/
+    }
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
@@ -38,7 +39,7 @@ public class LoginHandle implements HttpHandler {
     }
 
     protected void handleThrowable(HttpExchange httpExchange) throws IOException  {
-        //sessionHandler.handle(httpExchange);
+        sessionHandler.handle(httpExchange);
 
         loginController.handle(httpExchange);
     }

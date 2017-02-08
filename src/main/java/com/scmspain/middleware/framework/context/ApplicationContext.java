@@ -1,5 +1,7 @@
 package com.scmspain.middleware.framework.context;
 
+import com.sun.net.httpserver.HttpHandler;
+
 import javax.sql.DataSource;
 
 /**
@@ -8,4 +10,8 @@ import javax.sql.DataSource;
 public interface ApplicationContext {
 
     DataSource getDataSource();
+
+    HttpHandler getLoginHandler();
+
+    HttpHandler getSessionHandler();
 }

@@ -22,9 +22,9 @@ public class ApplicationResourceDao {
         final DataBaseAccessImpl dataBaseAccess = new DataBaseAccessImpl(dataSource);
 
         final List<Map<String, String>> results = dataBaseAccess.executeQuery(""
-                        + "SELECT APP_RES.URL_PATTERN, APP_RES.HTTP_METHOD FROM ROLE ROLE "
-                        + "INNER JOIN RESOURCE_ROLE ROLE ON APP_ROLE.CODE = APP_RES_APP_ROLE.APPLICATION_ROLE_CODE "
-                        + "INNER JOIN APPLICATION_RESOURCE APP_RES ON APP_RES.URL_PATTERN = APP_RES_APP_ROLE.APPLICATION_RESOURCE_URL_PATTERN "
+                        + "SELECT APP_RES.URL_PATTERN, APP_RES.HTTP_METHOD FROM APPLICATION_ROLE APP_ROLE "
+                        + "INNER JOIN RESOURCE_ROLE APP_RES_APP_ROLE ON APP_ROLE.CODE = APP_RES_APP_ROLE.APPLICATION_ROLE_CODE "
+                        + "INNER JOIN RESOURCE APP_RES ON APP_RES.URL_PATTERN = APP_RES_APP_ROLE.APPLICATION_RESOURCE_URL_PATTERN "
                         + "INNER JOIN USER ACC ON ACC.APPLICATION_ROLE_CODE = APP_ROLE.CODE "
                         + "WHERE ACC.CODE = ? ",
                 answer ->
