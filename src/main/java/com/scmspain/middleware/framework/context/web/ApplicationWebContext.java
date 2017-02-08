@@ -2,9 +2,9 @@ package com.scmspain.middleware.framework.context.web;
 
 import com.scmspain.middleware.framework.context.ApplicationContext;
 import com.scmspain.middleware.framework.context.datasource.impl.ContextDataSource;
+import com.scmspain.middleware.framework.http.handle.HttpHandler;
 import com.scmspain.middleware.framework.http.handle.LoginHandle;
 import com.scmspain.middleware.framework.http.handle.SessionHandler;
-import com.sun.net.httpserver.HttpHandler;
 
 import javax.sql.DataSource;
 
@@ -14,18 +14,14 @@ import javax.sql.DataSource;
 public class ApplicationWebContext implements ApplicationContext {
 
     private final DataSource dataSource;
-    private final HttpHandler loginHandler;
     private final HttpHandler sessionHandler;
+    private final HttpHandler loginHandler;
+
 
     private ApplicationWebContext() {
-
         this.dataSource = ContextDataSource.getInstance().getDataSource();
         this.sessionHandler = new SessionHandler();
         this.loginHandler = new LoginHandle(sessionHandler);
-    }
-
-    public ApplicationWebContext(DataSource dataSource) {
-        this.dataSource = dataSource;
     }
 
     public static ApplicationContext getInstance() {
